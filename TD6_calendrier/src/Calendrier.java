@@ -13,6 +13,9 @@ public class Calendrier {
          */
         AfficherEntête();
         AfficherMois(1, 28);
+
+        System.out.println(estBixestile(2007));
+        System.out.println(nombreJour(2, 2007));
     }
 
     public static String nomMois(int mois) {
@@ -82,7 +85,7 @@ public class Calendrier {
         }
     }
 
-    public boolean estBixestile(int annee) {
+    public static boolean estBixestile(int annee) {
         if (annee % 400 == 0) {
             return true;
         }
@@ -91,6 +94,30 @@ public class Calendrier {
             return true;
         }
         return false;
+    }
+
+    public static int nombreJour(int mois, int annee) {
+
+        int[] tab = new int[12];
+        tab[0] = 31;
+        if (estBixestile(annee)) {
+            tab[1] = 29;
+        } else {
+            tab[1] = 28;
+        }
+
+        tab[2] = 31;
+        tab[3] = 30;
+        tab[4] = 31;
+        tab[5] = 30;
+        tab[6] = 31;
+        tab[7] = 31;
+        tab[8] = 30;
+        tab[9] = 31;
+        tab[10] = 30;
+        tab[11] = 31;
+        return tab[mois - 1];
+
     }
 
 }
