@@ -15,6 +15,9 @@ public class Exercices {
     }
 
     public static boolean Palindrom(String mot) {
+        if (mot.length() < 2) {
+            throw new IllegalArgumentException("le mot doit avoir plus d'une lette");
+        }
 
         int i = 0;
         int j = mot.length() - 1;
